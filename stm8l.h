@@ -1,3 +1,9 @@
+#ifndef __STM8L_H
+#define __STM8L_H
+
+#include <stdint.h>
+#include "bitops.h"
+
 /* GPIO */
 #define PA_ODR *(unsigned char*)0x5000
 #define PA_IDR *(unsigned char*)0x5001
@@ -35,12 +41,16 @@
 #define PF_CR1 *(unsigned char*)0x501C
 #define PF_CR2 *(unsigned char*)0x501D
 
+#define SYSCFG_RMPCR1 *(unsigned char*)0x509e
+
 /* CLOCK */
 #define CLK_DIVR	*(unsigned char*)0x50C0
 #define CLK_CRTCR	*(unsigned char*)0x50C1
 #define CLK_ICKR	*(unsigned char*)0x50C2
 #define CLK_PCKENR1	*(unsigned char*)0x50C3
+#define  CLK_PCKENR1_UART1	BIT(5)
 #define CLK_PCKENR2	*(unsigned char*)0x50C4
+#define  CLK_PCKENR2_TIM1	BIT(1)
 #define CLK_CCOR	*(unsigned char*)0x50C5
 #define CLK_ECKR	*(unsigned char*)0x50C6
 #define CLK_SCSR	*(unsigned char*)0x50C7
@@ -174,3 +184,5 @@
 #define TIM_SR1_CC2IF (1 << 2)
 #define TIM_SR1_CC1IF (1 << 1)
 #define TIM_SR1_UIF (1 << 0)
+
+#endif /* __STM8S_H */
